@@ -1,14 +1,14 @@
-# 2022-Projection-Pursuit-for-Cluster-Tree
+# 2022-Clustering-model-using-Projection-Pursuit
 
-### 이화여대 통계학 석사 학위 논문 (진행중) 
+### 이화여대 통계학 석사 학위 논문 
 - Paper 스터디 : 2022.01 ~
-- 모델 : Projection Pursuit (투영 추적)
+- 모델 : Projection Pursuit (사영 추적)
 - Tool : R 
 - 관련 Skill : 차원축소, Clustering
 
 <br> </br>
 💡 주제 <br>
-차원축소 방법론인 Projection Pursuit(PP)을 이용하여 고차원 데이터를 원하는 정보를 담고있는 방향의 저차원으로 투영시켜가며, 트리 형태로 클러스터링하는 기법을 제안한다.
+차원축소 방법론인 Projection Pursuit(PP)을 이용하여 고차원 데이터를 원하는 정보를 담고있는 방향의 저차원으로 투영시켜가며, 반복적으로 클러스터링하는 기법을 제안한다.
 
 
 💡 강점 <br>
