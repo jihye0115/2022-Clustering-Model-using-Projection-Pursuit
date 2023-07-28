@@ -1,5 +1,7 @@
 # 2022-Clustering-model-using-Projection-Pursuit
 
+###📰 [논문 바로가기](https://dcollection.ewha.ac.kr/public_resource/pdf/000000202073_20230728233750.pdf) 
+
 ### 이화여대 통계학 석사 학위 논문 
 - Paper 스터디 : 2022.01 ~
 - 모델 : Projection Pursuit (사영 추적)
