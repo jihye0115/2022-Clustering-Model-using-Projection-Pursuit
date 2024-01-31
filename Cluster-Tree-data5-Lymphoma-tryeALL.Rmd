@@ -1,0 +1,113 @@
+---
+title: "Cluster-Tree-Lymphoma"
+author: "212STG18_예지혜"
+output:
+  html_document: default
+  word_document: default
+editor_options:
+  chunk_output_type: console
+---
+### upload functions
+
+* PPTreeCluster
+* plot.PPtreeclass
+* print.PPtreeclass
+* huber.node
+* CHIndex
+* LppIndex.S1
+* LppIndex
+* HolesIndex
+* CMIndex
+* SKIndex
+* PIndex
+
+```{r}
+source("./FunctionAll1104.R")
+```
+
+\newpage
+# data
+```{r}
+lymph <- read.csv("data/Lymp-tot.csv")
+lymph <- lymph[lymph$Type != 'FL',]
+colnames(lymph)
+lymph.class <- lymph$Type
+table(lymph.class)
+lymph.x <- lymph[,2:6]
+#head(lymph.x, 3)
+dim(lymph.x)
+```
+
+
+\newpage
+# LppIndex
+
+```{r}
+A1 = Sys.time()
+sol <- PPTreeCluster(lymph.x, lymph.class, UserDefFtn = LppIndex, notb.plot = TRUE, notenough.plot = TRUE, b.height = 0.8, max_depth = 1)
+A2 = Sys.time()
+print(A2-A1)
+plot(sol)
+for (i in sol$Tree.Struct[sol$Tree.Struct[,4]!=0,1]){
+  huber.node(sol,i)
+}
+(tt<-table(sol$final.cluster))
+sum(apply(tt,2,max))/sum(tt)
+print(sol$projbest.node)
+```
+
+\newpage
+# HolesIndex
+
+```{r}
+A1 = Sys.time()
+sol <- PPTreeCluster(lymph.x, lymph.class, UserDefFtn = HolesIndex, notb.plot = TRUE, notenough.plot = TRUE, b.height = 0.8, max_depth = 1)
+A2 = Sys.time()
+print(A2-A1)
+plot(sol)
+for (i in sol$Tree.Struct[sol$Tree.Struct[,4]!=0,1]){
+  huber.node(sol,i)
+}
+(tt<-table(sol$final.cluster))
+sum(apply(tt,2,max))/sum(tt)
+print(sol$projbest.node)
+```
+
+
+\newpage
+# PIndex
+
+```{r}
+A1 = Sys.time()
+sol <- PPTreeCluster(lymph.x, lymph.class, UserDefFtn = PIndex, notb.plot = TRUE, notenough.plot = TRUE, b.height = 0.8, max_depth = 1)
+A2 = Sys.time()
+print(A2-A1)
+plot(sol)
+for (i in sol$Tree.Struct[sol$Tree.Struct[,4]!=0,1]){
+  huber.node(sol,i)
+}
+(tt<-table(sol$final.cluster))
+sum(apply(tt,2,max))/sum(tt)
+print(sol$projbest.node)
+```
+
+
+\newpage
+# LDA
+```{r}
+library(MASS)
+(ld <- lda(formula = lymph.class ~ ., data = data.frame(lymph.x, lymph.class)))
+(tt <- table(lymph.class, predict(ld, lymph.x)$class))
+sum(tt[row(tt) == col(tt)])/sum(tt) #acc
+```
+
+
+\newpage
+# Random Forest
+```{r}
+library(randomForest)
+(rf <- randomForest(formula = factor(lymph.class) ~ ., data = data.frame(lymph.x, lymph.class)))
+(tt <- rf$confusion[,-ncol(rf$confusion)])
+sum(tt[row(tt) == col(tt)])/sum(tt) #acc
+```
+
