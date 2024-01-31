@@ -1,0 +1,118 @@
+---
+title: "Cluster-Tree-palmerpenguin"
+author: "212STG18_예지혜"
+output:
+  html_document: default
+  word_document: default
+editor_options:
+  chunk_output_type: console
+---
+### upload functions
+
+* PPTreeCluster
+* plot.PPtreeclass
+* print.PPtreeclass
+* huber.node
+* CHIndex
+* LppIndex.S1
+* LppIndex
+* HolesIndex
+* CMIndex
+* SKIndex
+* PIndex
+
+```{r}
+source("./FunctionAll1104.R")
+```
+
+\newpage
+# data
+```{r}
+library(palmerpenguins)
+colnames(penguins)
+penguins.class <- penguins$species
+table(penguins.class)
+penguins.x <- data.frame(penguins[,3:ncol(penguins)])
+penguins.x <- penguins.x[,-5]
+penguins.x <- penguins.x[,-5]
+head(penguins.x, 3)
+dim(penguins.x)
+## na
+sum(is.na(penguins.x))
+for (j in 1:ncol(penguins.x)){
+  penguins.x[is.na(penguins.x[,j]),j] <- mean(penguins.x[,j], na.rm=TRUE)
+}
+```
+
+
+\newpage
+# LppIndex
+
+```{r}
+A1 = Sys.time()
+sol <- PPTreeCluster(penguins.x, penguins.class, UserDefFtn = LppIndex, notb.plot = TRUE)
+A2 = Sys.time()
+print(A2-A1)
+plot(sol)
+for (i in sol$Tree.Struct[sol$Tree.Struct[,4]!=0,1]){
+  huber.node(sol,i)
+}
+(tt<-table(sol$final.cluster))
+sum(apply(tt,2,max))/sum(tt)
+print(sol$projbest.node)
+```
+
+\newpage
+# HolesIndex
+
+```{r}
+A1 = Sys.time()
+sol <- PPTreeCluster(penguins.x, penguins.class, UserDefFtn = HolesIndex, notb.plot = TRUE)
+A2 = Sys.time()
+print(A2-A1)
+plot(sol)
+for (i in sol$Tree.Struct[sol$Tree.Struct[,4]!=0,1]){
+  huber.node(sol,i)
+}
+(tt<-table(sol$final.cluster))
+sum(apply(tt,2,max))/sum(tt)
+print(sol$projbest.node)
+```
+
+
+\newpage
+# PIndex
+
+```{r}
+A1 = Sys.time()
+sol <- PPTreeCluster(penguins.x, penguins.class, UserDefFtn = PIndex, notb.plot = TRUE)
+A2 = Sys.time()
+print(A2-A1)
+plot(sol)
+for (i in sol$Tree.Struct[sol$Tree.Struct[,4]!=0,1]){
+  huber.node(sol,i)
+}
+(tt<-table(sol$final.cluster))
+sum(apply(tt,2,max))/sum(tt)
+print(sol$projbest.node)
+```
+
+\newpage
+# LDA
+```{r}
+library(MASS)
+(ld <- lda(formula = penguins.class ~ ., data = data.frame(penguins.x, penguins.class)))
+(tt <- table(penguins.class, predict(ld, penguins.x)$class))
+sum(tt[row(tt) == col(tt)])/sum(tt) #acc
+```
+
+
+\newpage
+# Random Forest
+```{r}
+library(randomForest)
+(rf <- randomForest(formula = factor(penguins.class) ~ ., data = data.frame(penguins.x, penguins.class)))
+(tt <- rf$confusion[,-ncol(rf$confusion)])
+sum(tt[row(tt) == col(tt)])/sum(tt) #acc
+```
+
