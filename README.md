@@ -24,6 +24,8 @@
 
 <br>
 ### Poster
+
+<br>
 ![Poster  Clustering-Model-using-Projection-Pursuit](https://github.com/jihye0115/2022-Clustering-Model-using-Projection-Pursuit/assets/77092027/2f54acc5-53e5-49e0-86b3-ac08949442a0)
 
 
