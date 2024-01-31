@@ -12,29 +12,18 @@
 💡 주제 <br>
 차원축소 방법론인 Projection Pursuit(PP)을 이용하여 고차원 데이터를 원하는 정보를 담고있는 방향의 저차원으로 투영시켜가며, 반복적으로 클러스터링하는 기법을 제안한다.
 
+💡 제안 모형 <br>
+1. 사영 : 고차원 데이터를 원하는 사영 추적 지수를 사용하여 최적 방향으로 사영
+2. 군집화 : 사영된 데이터의 분포를 추정하고, 최소인 지점을 기준으로 데이터 분리
+3. 반복 : 원하는 군집 개수가 될 때까지 사영 및 군집화 과정을 반복
 
 💡 강점 <br>
 - Projection Pursuit은 Index를 통해 원하는 정보를 정의하여, 의도에 따라 다양한 방향으로 클러스터링 가능
-- 실제 그룹 정보를 학습에 사용하지 않았음에도 일부 데이터에서는 더 높은 정확도를 보임
+- 실제 그룹 정보를 학습에 사용하지 않았음에도 일부 데이터에서는 랜덤포레스트보다 더 높은 정확도를 보임
 - 최적 사영 벡터의 계수를 통해 중요 변수 파악 가능
+- 변수의 선형 결합 (최적 사영 벡터) 식이 곧 군집을 나누는 기준이 되어, 해석 가능
 
-<br>
-(예시) 4개의 클래스로 이루어진 2차원 데이터 -> 중심이 모여있는 방향을 찾는 Holes Index를 통해 클러스터링
-![image](https://user-images.githubusercontent.com/77092027/189475034-b6c4bece-cd73-4dee-9e68-ada29eb94103.png)
 
-## Poster
+### Poster
 ![Poster  Clustering-Model-using-Projection-Pursuit](https://github.com/jihye0115/2022-Clustering-Model-using-Projection-Pursuit/assets/77092027/fe7069d7-361d-45f2-b208-dd293175e7c1)
 
-
-## Study Reference Paper
-[1주차] :page_with_curl: Nanga, Salifu, et al. "Review of Dimension Reduction Methods." Journal of Data Analysis and Information Processing 9.3 (2021): 189-231. <br>
-[2주차] <br>:page_with_curl: Jolliffe, Ian T., and Jorge Cadima. "Principal component analysis: a review and recent developments." Philosophical Transactions of the Royal Society A: Mathematical, Physical and Engineering Sciences 374.2065 (2016): 20150202. <br>
-:page_with_curl: Modarresi, Kourosh. "Unsupervised feature extraction using singular value decomposition." Procedia computer science 51 (2015): 2417-2425. <br>
-[3주차] :page_with_curl: Friedman, Jerome H., and John W. Tukey. "A projection pursuit algorithm for exploratory data analysis." IEEE Transactions on computers 100.9 (1974): 881-890. <br>
-[4주차] :page_with_curl: Cook, Dianne, Andreas Buja, and Javier Cabrera. "Projection pursuit indexes based on orthonormal function expansions." Journal of Computational and Graphical Statistics 2.3 (1993): 225-250. <br>
-[5주차] :page_with_curl: Espezua, Soledad, et al. "A Projection Pursuit framework for supervised dimension reduction of high dimensional small sample datasets." Neurocomputing 149 (2015): 767-776. <br>
-[6주차] <br>:page_with_curl: Lee, Eun-Kyung, and Dianne Cook. "A projection pursuit index for large p small n data." Statistics and Computing 20.3 (2010): 381-392. <br>
-:page_with_curl: Lee, Eun-Kyung. "PPtreeViz: An R package for visualizing projection pursuit classification trees." Journal of Statistical Software 83 (2018): 1-30. <br>
-[7주차] :page_with_curl: Grochowski, Marek, and Włodzisław Duch. "Constrained learning vector quantization or relaxed k-separability." International Conference on Artificial Neural Networks. Springer, Berlin, Heidelberg, 2009. <br>
-[8주차] :page_with_curl: Thrun, Michael C., and Alfred Ultsch. "Using projection-based clustering to find distance-and density-based clusters in high-dimensional data." Journal of Classification 38.2 (2021): 280-312. <br>
-[10주차] :page_with_curl: Laa, Ursula, et al. "Hole or grain? a section pursuit index for finding hidden structure in multiple dimensions." Journal of Computational and Graphical Statistics (2022): 1-14.
