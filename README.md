@@ -22,6 +22,9 @@
 (예시) 4개의 클래스로 이루어진 2차원 데이터 -> 중심이 모여있는 방향을 찾는 Holes Index를 통해 클러스터링
 ![image](https://user-images.githubusercontent.com/77092027/189475034-b6c4bece-cd73-4dee-9e68-ada29eb94103.png)
 
+## Poster
+![Poster  Clustering-Model-using-Projection-Pursuit](https://github.com/jihye0115/2022-Clustering-Model-using-Projection-Pursuit/assets/77092027/fe7069d7-361d-45f2-b208-dd293175e7c1)
+
 
 ## Study Reference Paper
 [1주차] :page_with_curl: Nanga, Salifu, et al. "Review of Dimension Reduction Methods." Journal of Data Analysis and Information Processing 9.3 (2021): 189-231. <br>
