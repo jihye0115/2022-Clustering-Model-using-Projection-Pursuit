@@ -7,7 +7,7 @@
 - Tool : R 
 - 관련 Skill : 차원축소, Clustering
 
-<br> </br>
+<br>
 💡 주제 <br>
 차원축소 방법론인 Projection Pursuit(PP)을 이용하여 고차원 데이터를 원하는 정보를 담고있는 방향의 저차원으로 투영시켜가며, 반복적으로 클러스터링하는 기법을 제안한다.
 
@@ -22,7 +22,7 @@
 - 최적 사영 벡터의 계수를 통해 중요 변수 파악 가능
 - 변수의 선형 결합 (최적 사영 벡터) 식이 곧 군집을 나누는 기준이 되어, 해석 가능
 
-
+<br>
 ### Poster
 ![Poster  Clustering-Model-using-Projection-Pursuit](https://github.com/jihye0115/2022-Clustering-Model-using-Projection-Pursuit/assets/77092027/fe7069d7-361d-45f2-b208-dd293175e7c1)
 
