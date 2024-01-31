@@ -9,7 +9,7 @@
 
 <br>
 💡 주제 <br>
-차원축소 방법론인 Projection Pursuit(PP)을 이용하여 고차원 데이터를 원하는 정보를 담고있는 방향의 저차원으로 투영시켜가며, 반복적으로 클러스터링하는 기법을 제안한다.
+차원축소 방법론인 Projection Pursuit(PP)을 이용하여 고차원 데이터를 원하는 정보를 담고있는 방향의 저차원으로 투영시켜가며, 반복적으로 클러스터링하는 기법을 제안한다. <br>
 
 💡 제안 모델 <br>
 1. 사영 : 고차원 데이터를 원하는 사영 추적 지수를 사용하여 최적 방향으로 사영
@@ -24,5 +24,7 @@
 
 <br>
 ### Poster
-![Poster  Clustering-Model-using-Projection-Pursuit](https://github.com/jihye0115/2022-Clustering-Model-using-Projection-Pursuit/assets/77092027/fe7069d7-361d-45f2-b208-dd293175e7c1)
+![Poster  Clustering-Model-using-Projection-Pursuit](https://github.com/jihye0115/2022-Clustering-Model-using-Projection-Pursuit/assets/77092027/2f54acc5-53e5-49e0-86b3-ac08949442a0)
+
+
 
